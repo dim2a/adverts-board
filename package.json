@@ -1,5 +1,5 @@
 {
-  "name": "react-ads-board",
+  "name": "react-instinctools",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -43,6 +43,12 @@
     "react-app-polyfill": "^0.2.1",
     "react-dev-utils": "^7.0.3",
     "react-dom": "^16.8.2",
+    "react-redux": "^6.0.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1",
@@ -108,8 +114,8 @@
       "node"
     ],
     "watchPlugins": [
-      "G:\\myProjects\\reactTutorial\\react-ads-board\\node_modules\\jest-watch-typeahead\\filename.js",
-      "G:\\myProjects\\reactTutorial\\react-ads-board\\node_modules\\jest-watch-typeahead\\testname.js"
+      "D:\\projects\\reactTutorial\\react-instinctools\\node_modules\\jest-watch-typeahead\\filename.js",
+      "D:\\projects\\reactTutorial\\react-instinctools\\node_modules\\jest-watch-typeahead\\testname.js"
     ]
   },
   "babel": {

@@ -1,12 +1,28 @@
 import React, { Component } from 'react';
 import classes from './App.css';
+import {Switch, Route, Redirect} from 'react-router'
+import Layout from './hoc/Layout/Layout'
+import Ads from './containers/Ads/Ads' 
+import Header from './components/Header/Header'
+import Sidebar from './components/Sidebar/Sidebar'
+import Content from './hoc/Content/Content'
 
 class App extends Component {
   render() {
     return (
-      <div className={classes.App}>
-        <h1>Hello!!!</h1>
-      </div>
+      <Layout>
+        <Header/>
+        <Sidebar/>
+        <Content>
+          <Switch>
+            <Route path="/" exact component={Ads} />          
+            <Redirect to="/" />
+          </Switch>
+        </Content>
+      </Layout>
+      // <div className={classes.App}>
+      //   <h1>Hello!!!</h1>
+      // </div>
     );
   }
 }
