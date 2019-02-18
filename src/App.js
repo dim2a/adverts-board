@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classes from './App.css';
 import {Switch, Route, Redirect} from 'react-router'
 import Layout from './hoc/Layout/Layout'
-import Ads from './containers/Ads/Ads' 
+import Adverts from './containers/Adverts/Adverts' 
 import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
 import Content from './hoc/Content/Content'
@@ -15,7 +15,7 @@ class App extends Component {
         <Sidebar/>
         <Content>
           <Switch>
-            <Route path="/" exact component={Ads} />          
+            <Route path="/" exact component={Adverts} />          
             <Redirect to="/" />
           </Switch>
         </Content>
