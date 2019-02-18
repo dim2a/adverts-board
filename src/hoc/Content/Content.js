@@ -4,9 +4,7 @@ import classes from './Content.css'
 const Content = props => {
     return(
         <div className={classes.Content}>
-            <main>
-                {props.children}
-            </main>
+            {props.children}
         </div>
     )
 }

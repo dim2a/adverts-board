@@ -1,1 +1,17 @@
 .Adverts {}
+
+.advert {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    height: 167px;
+}
+h2, h4, p {
+    margin: 0;
+}
+
+.loadMore {
+    text-align: center;
+    margin: 10px;
+}

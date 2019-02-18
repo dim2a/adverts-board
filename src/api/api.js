@@ -6,3 +6,10 @@ export const getAdverts = async () => {
         //reject('errorMessage')
     })
 }
+
+export const loadMoreAdverts = async ({offset}) => {
+    return new Promise((resolve, reject) => {
+        resolve(adverts)
+        //reject('errorMessage')
+    })
+}
