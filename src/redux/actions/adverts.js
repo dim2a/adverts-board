@@ -3,10 +3,14 @@ import {GET_ADVERTS_START,
     GET_ADVERTS_FAILURE,
     LOAD_MORE_START,
     LOAD_MORE_SUCCESS,
-    LOAD_MORE_FAILURE
+    LOAD_MORE_FAILURE,
+    GET_ADVERT_BY_ID_START,
+    GET_ADVERT_BY_ID_SUCCESS,
+    GET_ADVERT_BY_ID_FAILURE
 } from './actionType'
 import {getAdverts as getAdvertsApi,
-    loadMoreAdverts as loadMoreAdvertsApi
+    loadMoreAdverts as loadMoreAdvertsApi,
+    getAdvertById as getAdvertByIdApi
 } from '../../api/api'
 import {getRenderedAdverts} from '../../helpers/selectors'
 
@@ -45,4 +49,22 @@ export const loadMoreHandler = () => async (dispatch, getState) => {
             error: true
         })
     }    
+}
+
+export const getAdvertById = id => async dispatch => {
+    dispatch({type: GET_ADVERT_BY_ID_START})
+
+    try {
+        const advert = await getAdvertByIdApi(id)
+        dispatch({
+            type: GET_ADVERT_BY_ID_SUCCESS,
+            payload: advert
+        })
+    } catch(err) {
+        dispatch({
+            type: GET_ADVERT_BY_ID_FAILURE,
+            payload: err,
+            error: true
+        })
+    }
 }
