@@ -6,7 +6,7 @@ let store = {
             title: 'Sale1',
             created: '',
             modified: '',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae molestias, ullam corrupti aliquid distinctio reprehenderit architecto doloribus ut sed veritatis velit error debitis expedita tempore voluptates ratione quae deserunt consequuntur, eligendi quo rem! Perferendis voluptate eos ipsa asperiores ipsam voluptates libero recusandae quisquam eveniet veritatis, minima aspernatur repudiandae vitae totam ullam minus error molestiae eaque repellendus aut harum, non odit? Accusamus reiciendis magni sint aliquid voluptatum placeat, eaque ipsum rerum? Eos magni iure itaque esse sit? Voluptates doloremque exercitationem blanditiis cumque praesentium quam ipsam ipsum quisquam quia nihil hic nulla id autem eaque non aperiam excepturi, optio neque asperiores? Quisquam!',
+            description: 'Lorem asd ipsum dolor sit amet consectetur adipisicing elit. Recusandae molestias, ullam corrupti aliquid distinctio reprehenderit architecto doloribus ut sed veritatis velit error debitis expedita tempore voluptates ratione quae deserunt consequuntur, eligendi quo rem! Perferendis voluptate eos ipsa asperiores ipsam voluptates libero recusandae quisquam eveniet veritatis, minima aspernatur repudiandae vitae totam ullam minus error molestiae eaque repellendus aut harum, non odit? Accusamus reiciendis magni sint aliquid voluptatum placeat, eaque ipsum rerum? Eos magni iure itaque esse sit? Voluptates doloremque exercitationem blanditiis cumque praesentium quam ipsam ipsum quisquam quia nihil hic nulla id autem eaque non aperiam excepturi, optio neque asperiores? Quisquam!',
             price: '20',
             views: '2'
         },
@@ -16,7 +16,7 @@ let store = {
             title: 'Sale2',
             created: '',
             modified: '',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae molestias, ullam corrupti aliquid distinctio reprehenderit architecto doloribus ut sed veritatis velit error debitis expedita tempore voluptates ratione quae deserunt consequuntur, eligendi quo rem! Perferendis voluptate eos ipsa asperiores ipsam voluptates libero recusandae quisquam eveniet veritatis, minima aspernatur repudiandae vitae totam ullam minus error molestiae eaque repellendus aut harum, non odit? Accusamus reiciendis magni sint aliquid voluptatum placeat, eaque ipsum rerum? Eos magni iure itaque esse sit? Voluptates doloremque exercitationem blanditiis cumque praesentium quam ipsam ipsum quisquam quia nihil hic nulla id autem eaque non aperiam excepturi, optio neque asperiores? Quisquam!',
+            description: 'Lorem asd ipsum dolor sit amet consectetur adipisicing elit. Recusandae molestias, ullam corrupti aliquid distinctio reprehenderit architecto doloribus ut sed veritatis velit error debitis expedita tempore voluptates ratione quae deserunt consequuntur, eligendi quo rem! Perferendis voluptate eos ipsa asperiores ipsam voluptates libero recusandae quisquam eveniet veritatis, minima aspernatur repudiandae vitae totam ullam minus error molestiae eaque repellendus aut harum, non odit? Accusamus reiciendis magni sint aliquid voluptatum placeat, eaque ipsum rerum? Eos magni iure itaque esse sit? Voluptates doloremque exercitationem blanditiis cumque praesentium quam ipsam ipsum quisquam quia nihil hic nulla id autem eaque non aperiam excepturi, optio neque asperiores? Quisquam!',
             price: '20',
             views: '2'
         },
@@ -180,6 +180,13 @@ let store = {
             price: '20',
             views: '2'
         },
+    ],
+    user: [
+        {
+            id: '001',
+            name: 'Trololo',
+            age: '23'
+        }
     ]
 }
 

@@ -1,15 +1,15 @@
-import * as R from 'ramda'
 import {GET_ADVERT_BY_ID_SUCCESS} from '../actions/actionType'
+import *as R from 'ramda'
 
 const initialState = {
     id: null
 }
 
-export default (state = initialState, {type, payload}) => {
-    switch (type) {
+export default (state = initialState, action) => {
+    switch (action.type) {
         case GET_ADVERT_BY_ID_SUCCESS:
-            return R.merge(state, {
-                id: R.prop('id',payload)
+            return R.merge(state,{
+                id: R.prop('id', action.payload)
             })
         default: return state
     }

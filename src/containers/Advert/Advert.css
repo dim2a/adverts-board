@@ -1,3 +1,7 @@
 .Advert {
-    
+    margin: 10px;
+    padding: 20px;
+    max-width: 900px;
+    position: absolute;
+    top:20%; 
 }

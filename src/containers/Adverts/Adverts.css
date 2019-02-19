@@ -7,6 +7,12 @@
     border-radius: 5px;
     height: 167px;
 }
+
+.advert:hover {
+    background-color:#e4dede;
+    cursor: pointer;
+}
+
 h2, h4, p {
     margin: 0;
 }

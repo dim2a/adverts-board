@@ -6,7 +6,8 @@ import {GET_ADVERTS_START,
     LOAD_MORE_FAILURE,
     GET_ADVERT_BY_ID_START,
     GET_ADVERT_BY_ID_SUCCESS,
-    GET_ADVERT_BY_ID_FAILURE
+    GET_ADVERT_BY_ID_FAILURE,
+    SEARCH_ADVERT
 } from './actionType'
 import {getAdverts as getAdvertsApi,
     loadMoreAdverts as loadMoreAdvertsApi,
@@ -52,7 +53,7 @@ export const loadMoreHandler = () => async (dispatch, getState) => {
 }
 
 export const getAdvertById = id => async dispatch => {
-    dispatch({type: GET_ADVERT_BY_ID_START})
+    dispatch({type:GET_ADVERT_BY_ID_START})
 
     try {
         const advert = await getAdvertByIdApi(id)
@@ -60,6 +61,7 @@ export const getAdvertById = id => async dispatch => {
             type: GET_ADVERT_BY_ID_SUCCESS,
             payload: advert
         })
+
     } catch(err) {
         dispatch({
             type: GET_ADVERT_BY_ID_FAILURE,
@@ -67,4 +69,11 @@ export const getAdvertById = id => async dispatch => {
             error: true
         })
     }
+}
+
+export const searchAdvert = text => dispatch => {
+    dispatch({
+        type: SEARCH_ADVERT,
+        payload: text
+    })
 }

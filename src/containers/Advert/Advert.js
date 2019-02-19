@@ -1,31 +1,44 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import classes from './Advert.css'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import {getAdvertById} from '../../redux/actions/adverts'
+import {getAdvertById as advertSelector} from '../../helpers/selectors'
 
-class Advert extends Component {
+export class Advert extends Component {
 
-    componentDidMount() {
-        //console.log(this.props.params)
-        this.props.getAdvertById(this.props.match.params.id)
+  componentDidMount() {
+      this.props.getAdvertById(this.props.match.params.id)  
+    }    
+
+    renderContent(){
+      const {title, description, views, price} = this.props.advert
+      console.log('renderContent', this.props)
+      return (
+        <>
+          <h1>{title}</h1>
+          <p>{description}</p>
+          <h3>{`Price: ${price} $`}</h3>
+          <p>{`Views: ${views}`}</p>
+        </>
+      )
     }
 
-    render(){
-        return(
-            <div className={classes.Advert}>
-                Advert
-            </div>
-        )
-    }
-    
+  render() { 
+    const {advert} = this.props   
+    return (
+      <div className={classes.Advert}>
+        {advert && this.renderContent()}
+      </div>
+    )
+  }
 }
 
-const mapStateToProps = state => {
-
-}
+const mapStateToProps = state => ({
+  advert: advertSelector(state, state.advertPage.id)
+})
 
 const mapDispatchToProps = {
-    getAdvertById
+  getAdvertById
 }
 
-export default connect(null, mapDispatchToProps)(Advert)
+export default connect(mapStateToProps, mapDispatchToProps)(Advert)
