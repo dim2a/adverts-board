@@ -17,7 +17,6 @@ export class Adverts extends Component {
   }
 
   renderAdvert(advert, id) {
-    console.log('advert', advert)
     const shortDescription = `${R.take(300, advert.description)}...`
     return(
       <div className={classes.advert} key={id}>

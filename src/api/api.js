@@ -28,6 +28,5 @@ export const getAdvertById = async id => {
 export const getCategories = async () => {
 
     const categories = await axios.get(`${baseUrl}/categories/-LZ9e1-LQrW6hDpdCWY6.json`)
-    console.log('categories ',categories)
     return categories.data
 }

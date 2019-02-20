@@ -9,7 +9,6 @@ const initialState = {}
 export default (state = initialState, action) => {
     switch(action.type){
         case GET_ADVERTS_SUCCESS:
-        console.log('payload', action.payload)
             const newValues = R.indexBy(R.prop('id'), action.payload)
             return R.merge(state, newValues)
         case LOAD_MORE_SUCCESS:

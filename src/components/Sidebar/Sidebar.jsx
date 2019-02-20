@@ -7,8 +7,10 @@ import Categories from '../Categories/Categories'
 const Sidebar = () => {
     return(
         <div className={classes.Sidebar}>
-            <Search/>
-            <Categories/>
+            <div className={classes.wrapper}>
+                <Search/>
+                <Categories/>
+            </div>
         </div>
     )
 }

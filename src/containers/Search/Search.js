@@ -36,7 +36,7 @@ export class Search extends Component {
                     onChange={this.handleChange}
                     type='text'
                 />
-                <button><i class="fas fa-search"></i></button>
+                <button><i className="fas fa-search"></i></button>
             </form>
         </div>
       </div>

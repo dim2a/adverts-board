@@ -3,6 +3,16 @@ Sidebar {
 }
 
 .Sidebar {
-    /* background: #09774a; */
-    padding: 10px;
+    /* background: #09774a;  */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    border: 1px solid black;
+    height: 360px;
+    position: fixed;
+    top: 90px;
+    background: #e4dede;
 }

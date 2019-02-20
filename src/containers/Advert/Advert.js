@@ -12,7 +12,6 @@ export class Advert extends Component {
 
     renderContent(){
       const {title, description, views, price} = this.props.advert
-      console.log('renderContent', this.props)
       return (
         <>
           <h1>{title}</h1>
