@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import classes from './Adverts.css'
 import { connect } from 'react-redux'
-import {getAdverts, loadMoreHandler} from '../../redux/actions/adverts'
+import {getAdverts, 
+  loadMoreHandler,
+  getCategories
+} from '../../redux/actions/adverts'
 import {receiveAdvert} from '../../helpers/selectors'
 import {NavLink} from 'react-router-dom'
 import * as R from 'ramda'
@@ -10,6 +13,7 @@ export class Adverts extends Component {
 
   componentDidMount() {
     this.props.getAdverts()
+    this.props.getCategories()
   }
 
   renderAdvert(advert, id) {
@@ -40,13 +44,16 @@ export class Adverts extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  adverts: receiveAdvert(state)
-})
+const mapStateToProps = (state, ownProps) => {
+  return {
+    adverts: receiveAdvert(state, ownProps)
+  }  
+}
 
 const mapDispatchToProps = {
   getAdverts,
-  loadMoreHandler
+  loadMoreHandler,
+  getCategories
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Adverts)

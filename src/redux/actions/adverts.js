@@ -7,11 +7,15 @@ import {GET_ADVERTS_START,
     GET_ADVERT_BY_ID_START,
     GET_ADVERT_BY_ID_SUCCESS,
     GET_ADVERT_BY_ID_FAILURE,
-    SEARCH_ADVERT
+    SEARCH_ADVERT,
+    GET_CATEGORIES_START,
+    GET_CATEGORIES_SUCCESS,
+    GET_CATEGORIES_FAILURE
 } from './actionType'
 import {getAdverts as getAdvertsApi,
     loadMoreAdverts as loadMoreAdvertsApi,
-    getAdvertById as getAdvertByIdApi
+    getAdvertById as getAdvertByIdApi,
+    getCategories as getCategoriesApi
 } from '../../api/api'
 import {getRenderedAdverts} from '../../helpers/selectors'
 
@@ -76,4 +80,22 @@ export const searchAdvert = text => dispatch => {
         type: SEARCH_ADVERT,
         payload: text
     })
+}
+
+export const getCategories = () => async dispatch => {
+    dispatch({type: GET_CATEGORIES_START})
+
+    try{
+        const categories = await getCategoriesApi()
+        dispatch({
+            type: GET_CATEGORIES_SUCCESS,
+            payload: categories
+        })
+    } catch(err) {
+        dispatch({
+            type: GET_CATEGORIES_FAILURE,
+            payload: err,
+            error: true
+        })
+    }    
 }

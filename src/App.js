@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import classes from './App.css';
 import {Switch, Route, Redirect} from 'react-router'
 import Layout from './hoc/Layout/Layout'
 import Adverts from './containers/Adverts/Adverts' 
@@ -17,14 +16,12 @@ class App extends Component {
         <Content>
           <Switch>
             <Route path="/adverts/:id" component={Advert}/>
+            <Route path="/categories/:id" component={Adverts}/>
             <Route path="/" exact component={Adverts} />          
             <Redirect to="/" />
           </Switch>
         </Content>
       </Layout>
-      // <div className={classes.App}>
-      //   <h1>Hello!!!</h1>
-      // </div>
     );
   }
 }

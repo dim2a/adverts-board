@@ -21,3 +21,10 @@ export const getAdvertById = id => {
         resolve(advert)
     })
 }
+
+export const getCategories = async () => {
+    return new Promise((resolve, reject) => {
+        resolve(state.categories)
+        //reject('errorMessage')
+    })
+}

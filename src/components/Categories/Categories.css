@@ -1,0 +1,23 @@
+.Categories {
+    
+}
+
+.categoryList a {
+    text-decoration: none;
+    color: black;
+}
+
+a.active > .categoryItem {
+    background: #e4dede;
+}
+
+.categoryItem {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.categoryItem:hover {
+    background-color: #e4dede;
+}
