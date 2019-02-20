@@ -24,6 +24,7 @@ export const getAdverts = () => async dispatch => {
 
     try{
         const ads = await getAdvertsApi()
+        console.log('ads', ads)
         dispatch({
             type: GET_ADVERTS_SUCCESS,
             payload: ads

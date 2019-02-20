@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
     switch(action.type){
         case GET_ADVERTS_SUCCESS:            
             return R.merge(state,{
-                ids: R.pluck('id', action.payload.adverts)
+                ids: R.pluck('id', action.payload)
             })
         case LOAD_MORE_SUCCESS:
             const ids = R.pluck('id', action.payload.adverts)

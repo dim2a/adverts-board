@@ -1,30 +1,33 @@
-import state from './temp'
 import * as R from 'ramda'
+import axios from 'axios'
 
-export const getAdverts = async () => {
-    return new Promise((resolve, reject) => {
-        resolve(state)
-        //reject('errorMessage')
-    })
+const baseUrl = 'https://ads-board-98ab4.firebaseio.com'
+
+export const getAdverts = async () => {    
+
+    const adverts = await axios.get(`${baseUrl}/adverts/-LZ9ccPHSAT8Yv9OZps8.json`)
+    return adverts.data
 }
 
 export const loadMoreAdverts = async ({offset}) => {
-    return new Promise((resolve, reject) => {
-        resolve(state)
-        //reject('errorMessage')
-    })
+    
+    const adverts = await axios.get(`${baseUrl}/adverts/-LZ9ccPHSAT8Yv9OZps8.json`)
+    return adverts.data
 }
 
-export const getAdvertById = id => {
+export const getAdvertById = async id => {
+
+    const adverts = await axios.get(`${baseUrl}/adverts/-LZ9ccPHSAT8Yv9OZps8.json`)
+    
     return new Promise((resolve, reject) => {
-        const advert = R.find(R.propEq('id', id), state.adverts)
+        const advert = R.find(R.propEq('id', id), adverts.data)
         resolve(advert)
     })
 }
 
 export const getCategories = async () => {
-    return new Promise((resolve, reject) => {
-        resolve(state.categories)
-        //reject('errorMessage')
-    })
+
+    const categories = await axios.get(`${baseUrl}/categories/-LZ9e1-LQrW6hDpdCWY6.json`)
+    console.log('categories ',categories)
+    return categories.data
 }

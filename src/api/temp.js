@@ -181,11 +181,14 @@ let store = {
             views: '2'
         },
     ],
-    user: [
+    users: [
         {
-            id: '001',
-            name: 'Trololo',
-            age: '23'
+            id: '1',
+            name: 'Admin',
+            firstName: 'Ivanov',
+            lastName: 'Ivan',
+            email: 'admin@gmail.com',
+            phone: '+375292111111'
         }
     ],
     categories: [

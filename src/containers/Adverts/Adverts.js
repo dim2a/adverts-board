@@ -17,6 +17,7 @@ export class Adverts extends Component {
   }
 
   renderAdvert(advert, id) {
+    console.log('advert', advert)
     const shortDescription = `${R.take(300, advert.description)}...`
     return(
       <div className={classes.advert} key={id}>
@@ -34,7 +35,7 @@ export class Adverts extends Component {
     return (
       <div className={classes.Adverts}>
         <div>
-          {adverts.map((advert, id) => this.renderAdvert(advert, id))}
+          {adverts && adverts.map((advert, id) => this.renderAdvert(advert, id))}
         </div>
         <div className={classes.loadMore}>
           <button onClick={loadMoreHandler}>Load more</button>
