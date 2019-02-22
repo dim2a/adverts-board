@@ -10,12 +10,16 @@ import {GET_ADVERTS_START,
     SEARCH_ADVERT,
     GET_CATEGORIES_START,
     GET_CATEGORIES_SUCCESS,
-    GET_CATEGORIES_FAILURE
+    GET_CATEGORIES_FAILURE,
+    REGISTRATION_START,
+    REGISTRATION_SUCCESS,
+    REGISTRATION_FAILURE
 } from './actionType'
 import {getAdverts as getAdvertsApi,
     loadMoreAdverts as loadMoreAdvertsApi,
     getAdvertById as getAdvertByIdApi,
-    getCategories as getCategoriesApi
+    getCategories as getCategoriesApi,
+    registration as registrationApi
 } from '../../api/api'
 import {getRenderedAdverts} from '../../helpers/selectors'
 
@@ -100,3 +104,21 @@ export const getCategories = () => async dispatch => {
     }    
 }
 
+export const  registration = userData => async dispatch => {
+    dispatch({type: REGISTRATION_START})
+
+    try{
+        const reg = await registrationApi(userData)
+        dispatch({
+            type: REGISTRATION_SUCCESS,
+            payload: reg
+        })
+
+    } catch(err) {
+        dispatch({
+            type: REGISTRATION_FAILURE,
+            payload: err,
+            error: true
+        })        
+    }
+}

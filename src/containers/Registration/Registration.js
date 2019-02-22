@@ -3,6 +3,7 @@ import classes from './Registration.css'
 import Input from '../../components/UI/Input/Input'
 import is from 'is_js'
 import { connect } from 'react-redux'
+import {registration} from '../../redux/actions/adverts'
 
 export class Registration extends Component {
   
@@ -45,7 +46,7 @@ export class Registration extends Component {
                 errorMessage: 'Недопустимое значение, 2-20 символов',
                 validation: {
                     required: true,
-                    minLength: 4,
+                    minLength: 2,
                     maxLength: 20
                   }
             },
@@ -135,7 +136,6 @@ export class Registration extends Component {
         Object.keys(formControls).forEach(name => {
           isFormValid = formControls[name].valid && isFormValid
         })
-        
         this.setState({
           formControls, isFormValid
         })
@@ -159,6 +159,21 @@ export class Registration extends Component {
             )
         })
     }
+    
+     btnHandler = (event) => {
+      console.log('btnHandler')
+      event.preventDefault()
+      const {userName, firstName, lastName, phone, email, password} = this.state.formControls
+      const userData = {
+        userName: userName.value,
+        firstName: firstName.value,
+        lastName: lastName.value,
+        phone: phone.value,
+        email: email.value,
+        password: password.value
+      }
+      this.props.registration(userData)
+    }
 
     render() {
     return (
@@ -166,7 +181,7 @@ export class Registration extends Component {
         <h1>Регистрация нового пользователя</h1>
         <form onSubmit={this.formHandler}>
             {this.formRender()}
-            <button>Регистрация</button>
+            <button onClick={this.btnHandler} disabled={!this.state.isFormValid}>Регистрация</button>
         </form>
       </div>
     )
@@ -178,7 +193,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  
+  registration
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Registration)

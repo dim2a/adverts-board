@@ -2,7 +2,7 @@ import * as R from 'ramda'
 import axios from 'axios'
 
 const baseUrl = 'https://ads-board-98ab4.firebaseio.com'
-//const apiKey =  "AIzaSyC5uQgA-B_P8TEb519yuUbMHjCnNbUG36c"
+const apiKey =  'AIzaSyC5uQgA-B_P8TEb519yuUbMHjCnNbUG36c'
 
 export const getAdverts = async () => {    
 
@@ -32,3 +32,17 @@ export const getCategories = async () => {
     return categories.data
 }
 
+export const registration = async userData => {
+    const regData = {
+        email: userData.email,
+        password: userData.password,
+        returnSecureToken: true
+    }
+    const reg = await axios.post(
+        `https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${apiKey}`, 
+        regData)
+    if (reg.status === 200) {
+        axios.post(`${baseUrl}/users.json`,userData)
+    }
+    return reg
+}
