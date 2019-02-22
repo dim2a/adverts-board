@@ -99,3 +99,4 @@ export const getCategories = () => async dispatch => {
         })
     }    
 }
+

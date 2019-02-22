@@ -5,8 +5,8 @@ Sidebar {
 .Sidebar {
     /* background: #09774a;  */
     text-align: center;
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
 }
 
 .wrapper {

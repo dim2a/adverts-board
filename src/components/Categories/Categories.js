@@ -16,11 +16,11 @@ const Categories = ({categories, activeCategoryId}) => {
         )
     }
 
-    const rebderAllCategory = () => {
+    const renderAllCategory = () => {
         return(
             <NavLink to={`/`}>
                 <div className={classes.categoryItem}>
-                    All
+                    Все
                 </div>
             </NavLink>
         )
@@ -30,7 +30,7 @@ const Categories = ({categories, activeCategoryId}) => {
         <div className={classes.Categories}>
             <h4>Категории</h4>
             <div className={classes.categoryList}>
-                {rebderAllCategory()}
+                {renderAllCategory()}
                 {categories.map((category, id) => renderCategory(category, id))}
             </div>
         </div>

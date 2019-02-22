@@ -6,6 +6,7 @@ import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
 import Content from './hoc/Content/Content'
 import Advert from './containers/Advert/Advert'
+import Registration from './containers/Registration/Registration'
 
 class App extends Component {
   render() {
@@ -14,9 +15,10 @@ class App extends Component {
         <Header/>
         <Sidebar/>
         <Content>
-          <Switch>
+          <Switch>            
             <Route path="/adverts/:id" component={Advert}/>
             <Route path="/categories/:id" component={Adverts}/>
+            <Route path="/registration" component={Registration} />
             <Route path="/" exact component={Adverts} />          
             <Redirect to="/" />
           </Switch>

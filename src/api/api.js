@@ -2,6 +2,7 @@ import * as R from 'ramda'
 import axios from 'axios'
 
 const baseUrl = 'https://ads-board-98ab4.firebaseio.com'
+//const apiKey =  "AIzaSyC5uQgA-B_P8TEb519yuUbMHjCnNbUG36c"
 
 export const getAdverts = async () => {    
 
@@ -30,3 +31,4 @@ export const getCategories = async () => {
     const categories = await axios.get(`${baseUrl}/categories/-LZ9e1-LQrW6hDpdCWY6.json`)
     return categories.data
 }
+

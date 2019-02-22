@@ -29,7 +29,7 @@ export class Search extends Component {
   render() {
     return (
       <div className={classes.Search}>
-        <h3>Quick search</h3>
+        <h3>Поиск</h3>
         <div>
             <form onSubmit={this.handleSubmit}>
                 <input 

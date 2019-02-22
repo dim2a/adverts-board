@@ -3,5 +3,16 @@ Header {
 }
 
 .Header {
-    background: #34e014;
+    border: 1px solid black;
+    background: #e4dede;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.regBtn {
+    height: 100%;
+}
+
+.regBtn:hover {
+    cursor: pointer;
 }

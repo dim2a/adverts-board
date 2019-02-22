@@ -1,0 +1,15 @@
+.Registration {
+    
+}
+
+.Registration > h1 {
+    text-align: center;
+}
+
+.Registration form {
+    border: 1px solid black;
+    border-radius: 10px;
+    max-width: 600px;
+    padding: 30px;
+    margin: 0 auto;
+}
