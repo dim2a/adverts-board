@@ -11,15 +11,23 @@ import {GET_ADVERTS_START,
     GET_CATEGORIES_START,
     GET_CATEGORIES_SUCCESS,
     GET_CATEGORIES_FAILURE,
+    GET_USERS_START,
+    GET_USERS_SUCCESS,
+    GET_USERS_FAILURE,
     REGISTRATION_START,
     REGISTRATION_SUCCESS,
-    REGISTRATION_FAILURE
+    REGISTRATION_FAILURE,
+    LOGIN_START,
+    LOGIN_SUCCESS,
+    LOGIN_FAILURE
 } from './actionType'
 import {getAdverts as getAdvertsApi,
     loadMoreAdverts as loadMoreAdvertsApi,
     getAdvertById as getAdvertByIdApi,
     getCategories as getCategoriesApi,
-    registration as registrationApi
+    getUsers as getUsersApi,
+    registration as registrationApi,
+    login as loginApi
 } from '../../api/api'
 import {getRenderedAdverts} from '../../helpers/selectors'
 
@@ -104,6 +112,24 @@ export const getCategories = () => async dispatch => {
     }    
 }
 
+export const getUsers = () => async dispatch => {
+    dispatch({type: GET_USERS_START})
+
+    try{
+        const users = await getUsersApi()
+        dispatch({
+            type: GET_USERS_SUCCESS,
+            payload: users
+        })
+    } catch(err) {
+        dispatch({
+            type: GET_USERS_FAILURE,
+            payload: err,
+            error: true
+        })
+    }    
+}
+
 export const  registration = userData => async dispatch => {
     dispatch({type: REGISTRATION_START})
 
@@ -114,9 +140,30 @@ export const  registration = userData => async dispatch => {
             payload: reg
         })
 
+
     } catch(err) {
         dispatch({
             type: REGISTRATION_FAILURE,
+            payload: err,
+            error: true
+        })        
+    }
+}
+
+export const  login = (loginData) => async dispatch => {
+    dispatch({type: LOGIN_START})
+
+    try{
+        const reg = await loginApi(loginData)
+        dispatch({
+            type: LOGIN_SUCCESS,
+            payload: reg
+        })
+        
+
+    } catch(err) {
+        dispatch({
+            type: LOGIN_FAILURE,
             payload: err,
             error: true
         })        

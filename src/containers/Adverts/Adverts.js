@@ -13,7 +13,7 @@ export class Adverts extends Component {
 
   componentDidMount() {
     this.props.getAdverts()
-    this.props.getCategories()
+    this.props.getCategories()    
   }
 
   renderAdvert(advert, id) {
@@ -31,6 +31,7 @@ export class Adverts extends Component {
 
   render() {
     const {adverts, loadMoreHandler} = this.props
+    console.log('state', this.props)
     return (
       <div className={classes.Adverts}>
         <div>

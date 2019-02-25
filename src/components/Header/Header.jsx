@@ -8,6 +8,9 @@ const Header = () => {
             <NavLink to="/registration">
                 <button className={classes.regBtn}>Регистрация</button>
             </NavLink>
+            <NavLink to="/login">
+                <button className={classes.regBtn}>Вход</button>
+            </NavLink>
         </header>
     )
 }

@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import classes from './Registration.css'
 import Input from '../../components/UI/Input/Input'
-import is from 'is_js'
 import { connect } from 'react-redux'
-import {registration} from '../../redux/actions/adverts'
+import {registration,
+  getUsers
+} from '../../redux/actions/adverts'
+
+import {validateControl} from '../../helpers/formHandler'
 
 export class Registration extends Component {
   
@@ -94,32 +97,6 @@ export class Registration extends Component {
       event.PreventDefault()
     }
 
-    validateControl(value, validation){
-        if(!validation) {
-          return true
-        }
-    
-        let isValid = true    
-        
-        if (validation.required) {
-          isValid = value.trim() !=='' && isValid          
-        }
-    
-        if (validation.email) {
-          isValid = is.email(value) && isValid
-        }
-
-        if (validation.phone) {
-          const isPhone = /^\+375 29 2[0-9]{2} [0-9]{2} [0-9]{2}$/.test(value)
-          isValid = isPhone && isValid
-        }
-    
-        if (validation.minLength || validation.maxLength) {
-          isValid = value.length >= validation.minLength && value.length <= validation.maxLength && isValid          
-        }
-        return isValid
-      }
-
     onChangeHandler = (event, controlName) => {
         
         const formControls = {...this.state.formControls}
@@ -127,7 +104,7 @@ export class Registration extends Component {
     
         control.value = event.target.value
         control.touched = true
-        control.valid = this.validateControl(control.value, control.validation)
+        control.valid = validateControl(control.value, control.validation)
     
         formControls[controlName] = control
     
@@ -161,7 +138,6 @@ export class Registration extends Component {
     }
     
      btnHandler = (event) => {
-      console.log('btnHandler')
       event.preventDefault()
       const {userName, firstName, lastName, phone, email, password} = this.state.formControls
       const userData = {
@@ -175,25 +151,33 @@ export class Registration extends Component {
       this.props.registration(userData)
     }
 
+    componentDidMount() {
+      this.props.getUsers()
+    }
+
     render() {
-    return (
-      <div className={classes.Registration}>
-        <h1>Регистрация нового пользователя</h1>
-        <form onSubmit={this.formHandler}>
-            {this.formRender()}
-            <button onClick={this.btnHandler} disabled={!this.state.isFormValid}>Регистрация</button>
-        </form>
-      </div>
+      console.log('status', this.props)
+    return (   
+      (this.props.regStatus === 200)   
+        ? <h1>Регистрация успешно завершена</h1>
+        : <div className={classes.Registration}>
+          <h1>Регистрация нового пользователя</h1>
+          <form onSubmit={this.formHandler}>
+              {this.formRender()}
+              <button onClick={this.btnHandler} disabled={!this.state.isFormValid}>Регистрация</button>
+          </form>          
+        </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  
+  regStatus: state.auth.regStatus
 })
 
 const mapDispatchToProps = {
-  registration
+  registration,
+  getUsers
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Registration)

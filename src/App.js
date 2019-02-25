@@ -7,6 +7,7 @@ import Sidebar from './components/Sidebar/Sidebar'
 import Content from './hoc/Content/Content'
 import Advert from './containers/Advert/Advert'
 import Registration from './containers/Registration/Registration'
+import Login from './containers/Login/Login'
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
             <Route path="/adverts/:id" component={Advert}/>
             <Route path="/categories/:id" component={Adverts}/>
             <Route path="/registration" component={Registration} />
+            <Route path="/login" component={Login} />
             <Route path="/" exact component={Adverts} />          
             <Redirect to="/" />
           </Switch>

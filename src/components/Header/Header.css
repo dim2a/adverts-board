@@ -11,6 +11,7 @@ Header {
 
 .regBtn {
     height: 100%;
+    width: 95px;
 }
 
 .regBtn:hover {

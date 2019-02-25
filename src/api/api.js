@@ -32,6 +32,20 @@ export const getCategories = async () => {
     return categories.data
 }
 
+export const getUsers = async () => {
+
+    const response = await axios.get(`${baseUrl}/users/.json`)
+    
+    // for(let name in response.data){
+    //     userIds.push(name)
+    // }
+    const getNames = R.pluck('userName')
+    console.log('userIds',getNames(response.data))
+    console.log('users',response.data)
+    //return R.sort(userName, users.data)
+    return response.data
+}
+
 export const registration = async userData => {
     const regData = {
         email: userData.email,
@@ -45,4 +59,20 @@ export const registration = async userData => {
         axios.post(`${baseUrl}/users.json`,userData)
     }
     return reg
+}
+
+export const login = async data => {
+    const loginData = {
+        email: data.email,
+        password: data.password,
+        returnSecureToken: true
+    }
+    const response = await axios.post(
+        `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${apiKey}`, 
+        loginData)
+    // if (reg.status === 200) {
+    //     axios.post(`${baseUrl}/users.json`,userData)
+    // }
+    console.log('login',response)
+    return response
 }
