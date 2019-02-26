@@ -5,7 +5,7 @@ import Input from '../../components/UI/Input/Input'
 import {validateControl} from '../../helpers/formHandler'
 import {login} from '../../redux/actions/adverts'
 
-export class Login extends Component {
+class Login extends Component {
 
     state = {
         isFormValid: false,
