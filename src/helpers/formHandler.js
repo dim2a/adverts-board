@@ -26,23 +26,28 @@ export const validateControl = (value, validation) => {
     return isValid
   }
 
-//   export const onChangeHandler = (event, controlName) => {
-        
-//     const formControls = {...this.state.formControls}
-//     const control = {...formControls[controlName]}
+  export function validate(value, validation = null) {
+    if (!validation) {
+        return true
+    }
 
-//     control.value = event.target.value
-//     control.touched = true
-//     control.valid = validateControl(control.value, control.validation)
+    let isValid = true
 
-//     formControls[controlName] = control
+    if (validation.required) {
+        isValid = value.trim() !== '' && isValid
+    }
 
-//     let isFormValid = true
-    
-//     Object.keys(formControls).forEach(name => {
-//       isFormValid = formControls[name].valid && isFormValid
-//     })
-//     this.setState({
-//       formControls, isFormValid
-//     })
-//   }
+    return isValid
+}
+
+export function validateForm(formControls) {
+  let isFormValid = true
+
+  for (let control in formControls) {
+      if (formControls.hasOwnProperty(control)) {
+          isFormValid = formControls[control].valid && isFormValid
+      }
+  }
+
+  return isFormValid
+}

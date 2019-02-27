@@ -7,32 +7,26 @@ class Header extends Component {
 
     render(){
         return(
-            this.props.registered
-                ?<header className={classes.Header}>
-                    <div className={classes.create}>
-                        <NavLink to="/newadvert">
+           <header className={classes.Header}>
+                <div className={classes.create}>
+                    {
+                        this.props.registered
+                        ? <NavLink to="/newadvert">
                             <button className={classes.Btn}>Новое объявление</button>
                         </NavLink>
-                    </div>
-                    <div className={classes.auth}>
-                        <NavLink to="/registration">
-                            <button className={classes.Btn}>Регистрация</button>
-                        </NavLink>
-                        <NavLink to="/login">
-                            <button className={classes.Btn}>Вход</button>
-                        </NavLink>
-                    </div>                
-                </header>
-                :<header className={classes.Header}>
-                    <div className={classes.auth}>
-                        <NavLink to="/registration">
-                            <button className={classes.Btn}>Регистрация</button>
-                        </NavLink>
-                        <NavLink to="/login">
-                            <button className={classes.Btn}>Вход</button>
-                        </NavLink>
-                    </div>                
-                </header>
+                        : null
+                    }
+                    
+                </div>
+                <div className={classes.auth}>
+                    <NavLink to="/registration">
+                        <button className={classes.Btn}>Регистрация</button>
+                    </NavLink>
+                    <NavLink to="/login">
+                        <button className={classes.Btn}>Вход</button>
+                    </NavLink>
+                </div>                
+            </header>
         )
     }    
 }

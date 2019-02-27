@@ -90,7 +90,9 @@ class Login extends Component {
 
   render() {
     return (
-        <div className={classes.Login}>
+        this.props.registered
+        ? <h1>Добро пожаловать</h1>
+        :<div className={classes.Login}>
         <h1>Введите данные для входа</h1>
         <form onSubmit={this.formHandler}>
             {this.formRender()}
@@ -103,7 +105,7 @@ class Login extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  
+    registered: state.auth.registered
 })
 
 const mapDispatchToProps = {

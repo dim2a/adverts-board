@@ -7,7 +7,7 @@ Header {
     background: #e4dede;
     display: flex;
     justify-content: space-between;
-    justify-content: flex-end; 
+    /* justify-content: flex-end;  */
 }
 
 .Btn {
