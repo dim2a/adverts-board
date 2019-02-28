@@ -31,7 +31,6 @@ export class Adverts extends Component {
 
   render() {
     const {adverts, loadMoreHandler} = this.props
-    console.log('state', this.props)
     return (
       <div className={classes.Adverts}>
         <div>

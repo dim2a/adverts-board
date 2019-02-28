@@ -36,13 +36,6 @@ export const getUsers = async () => {
 
     const response = await axios.get(`${baseUrl}/users/.json`)
     
-    // for(let name in response.data){
-    //     userIds.push(name)
-    // }
-    const getNames = R.pluck('userName')
-    console.log('userIds',getNames(response.data))
-    console.log('users',response.data)
-    //return R.sort(userName, users.data)
     return response.data
 }
 
@@ -70,9 +63,5 @@ export const login = async data => {
     const response = await axios.post(
         `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${apiKey}`, 
         loginData)
-    // if (reg.status === 200) {
-    //     axios.post(`${baseUrl}/users.json`,userData)
-    // }
-    console.log('login',response)
     return response
 }

@@ -26,8 +26,6 @@ export const receiveAdvert = (state, ownProps) => {
         R.map(id => getAdvertById(state, id))
     )(state.advertsPage.ids)
     return adverts
-    // const adverts = R.map(id => getAdvertById(state, id), state.advertsPage.ids)
-    // return adverts
 
 }
 

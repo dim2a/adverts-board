@@ -81,7 +81,7 @@ export class Registration extends Component {
                 value: '',
                 type: 'password',
                 label: 'Пароль',
-                errorMessage: 'Введите корректный пароль',
+                errorMessage: 'Минимум 6 символов',
                 valid: false,
                 touched: false,
                 validation: {
@@ -156,10 +156,12 @@ export class Registration extends Component {
     }
 
     render() {
-      console.log('status', this.props)
     return (   
       (this.props.regStatus === 200)   
-        ? <h1>Регистрация успешно завершена</h1>
+        ?<div>
+          <h1>Регистрация успешно завершена</h1>
+          <h4 className={classes.instruction}>Для продолжения работы войдите в систему</h4>
+        </div>         
         : <div className={classes.Registration}>
           <h1>Регистрация нового пользователя</h1>
           <form onSubmit={this.formHandler}>

@@ -57,7 +57,8 @@ class CreateAdvert extends Component {
       const control = this.state.formControls[controlName]
 
       return (
-        <Input          
+        <Input     
+          key={index}     
           label={control.label}
           value={control.value}
           valid={control.valid}

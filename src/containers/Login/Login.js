@@ -3,7 +3,7 @@ import classes from './Login.css'
 import {connect} from 'react-redux'
 import Input from '../../components/UI/Input/Input'
 import {validateControl} from '../../helpers/formHandler'
-import {login} from '../../redux/actions/adverts'
+import {login, getUsers} from '../../redux/actions/adverts'
 
 class Login extends Component {
 
@@ -36,6 +36,10 @@ class Login extends Component {
                 }
             }
         }        
+    }
+
+    componentDidMount(){
+        this.props.getUsers()
     }
 
     formRender() {
@@ -105,11 +109,14 @@ class Login extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    registered: state.auth.registered
+    registered: state.auth.registered,
+    userEmail: state.auth.userEmail,
+    users: state.auth.users
 })
 
 const mapDispatchToProps = {
-  login
+  login,
+  getUsers
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

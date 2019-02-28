@@ -158,9 +158,7 @@ export const  login = (loginData) => async dispatch => {
         dispatch({
             type: LOGIN_SUCCESS,
             payload: reg
-        })
-        
-
+        })        
     } catch(err) {
         dispatch({
             type: LOGIN_FAILURE,
@@ -169,3 +167,14 @@ export const  login = (loginData) => async dispatch => {
         })        
     }
 }
+
+// export const getUserName = (userEmail, users) => async dispatch => {
+        
+//         const reg = await getUserNameSelect(userEmail, users)
+        
+//         dispatch({
+//             type: GET_USER_NAME,
+//             payload: reg
+//         })        
+    
+// }
